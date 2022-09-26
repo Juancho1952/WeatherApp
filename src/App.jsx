@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './App.css'
-import CardWeather from './components/CardWeather'
 import Loading from './components/Loading'
+import CardWeather from './components/CardWeather'
 
 function App() {
 
@@ -20,7 +20,10 @@ function App() {
       }
       setCoords(position)
     }
-    navigator.geolocation.getCurrentPosition(success)
+    const err = notPos => {
+      alert ('Oye no me bloquees')
+    }
+    navigator.geolocation.getCurrentPosition(success, err)
   }, [])
 
   
